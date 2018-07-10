@@ -8,20 +8,21 @@ import {
   blueBoxEnhancer,
   redBoxEnhancer,
 } from '../Enhancers';
+import style from './Styles/RootContainerStyles';
 import NormalComponent from './NormalComponent';
 
-const BlueComponent = compose(blueBoxEnhancer, redBoxEnhancer, blueBoxEnhancer)(NormalComponent);
+const BlueComponent = compose(blueBoxEnhancer)(NormalComponent);
 const RedComponent = compose(redBoxEnhancer)(NormalComponent);
 
 class Screen extends Component {
   render() {
     return (
       <Container>
-        <NormalComponent />
-        <View style={{ height: 5, backgroundColor: '#001edd'}} />
-        <BlueComponent />
-        <View style={{ height: 5, backgroundColor: '#001edd'}} />
-        <RedComponent />
+        <NormalComponent/>
+        <View style={style.horizontalLine}/>
+        <BlueComponent/>
+        <View style={style.horizontalLine}/>
+        <RedComponent/>
       </Container>
     );
   }
