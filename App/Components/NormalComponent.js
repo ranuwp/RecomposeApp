@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {
+  Container,
   Text,
 } from 'native-base';
-import { View } from 'react-native';
-import { redBoxEnhancer } from '../Enhancers';
 
 class NormalComponent extends Component {
   render() {
+    const { style } = this.props;
     return (
-      <View>
+      <Container style={style}>
         <Text>Higher Order Component</Text>
-      </View>
+      </Container>
     );
   }
 }

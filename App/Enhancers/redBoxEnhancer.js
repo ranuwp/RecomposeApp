@@ -5,9 +5,9 @@ const redBoxEnhancer = (WrappedComponent) => {
   return class extends Component {
     render() {
       return (
-        <Container style={{ backgroundColor: '#ff0024' }}>
+        <Container>
           <Text>Enhanced By redBoxEnhancer</Text>
-          <WrappedComponent />
+          <WrappedComponent {...this.props} style={{ backgroundColor: '#ff0024' }} />
         </Container>
       );
     }

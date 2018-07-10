@@ -5,9 +5,9 @@ const blueBoxEnhancer = (WrappedComponent) => {
   return class extends Component {
     render() {
       return (
-        <Container style={{ backgroundColor: '#8ce2ff' }}>
+        <Container>
           <Text>Enhanced By blueBoxEnhancer</Text>
-          <WrappedComponent {...this.props} />
+          <WrappedComponent {...this.props} style={{ backgroundColor: '#8ce2ff' }} />
         </Container>
       );
     }

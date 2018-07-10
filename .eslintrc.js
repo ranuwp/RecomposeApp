@@ -18,6 +18,7 @@ module.exports = {
     "no-undef": 0,
     "no-console": 0,
     "react/display-name": 0,
+    "react/prop-types": 0,
   },
   "settings": {
     "react": {
