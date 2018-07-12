@@ -9,10 +9,17 @@ class NormalComponent extends Component {
     const { style } = this.props;
     return (
       <Container style={style}>
-        <Text>Higher Order Component</Text>
+        <Text>Normal Component</Text>
       </Container>
     );
   }
 }
+
+NormalComponent.defaultProps = {
+  style: {
+    flex: 1,
+  },
+  data: [],
+};
 
 export default NormalComponent;
