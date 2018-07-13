@@ -1,28 +1,25 @@
+
 import React, { Component } from 'react';
 import {
   Container,
-  View,
+  Text,
 } from 'native-base';
-import { compose } from 'recompose';
 import {
-  blueBoxEnhancer,
-  redBoxEnhancer,
-} from '../Enhancers';
-import style from './Styles/RootContainerStyles';
-import NormalComponent from '../Components/NormalComponent';
-
-const BlueComponent = compose(blueBoxEnhancer, redBoxEnhancer, blueBoxEnhancer, blueBoxEnhancer)(NormalComponent);
-const RedComponent = compose(redBoxEnhancer)(NormalComponent);
+  multiply,
+  add,
+  substract,
+  devide
+} from '../Enhancers/Calculator';
 
 class Screen extends Component {
   render() {
     return (
       <Container>
-        <NormalComponent />
-        <View style={style.horizontalLine}/>
-        <BlueComponent />
-        <View style={style.horizontalLine}/>
-        <RedComponent />
+        <Text>x = 4, y = 3</Text>
+        <Text>Multiply: {multiply(4)(3)}</Text>
+        <Text>Devide: {devide(4)(3)}</Text>
+        <Text>Add: {add(4)(3)}</Text>
+        <Text>Subtract: {substract(4)(3)}</Text>
       </Container>
     );
   }
