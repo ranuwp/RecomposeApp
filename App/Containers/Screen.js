@@ -11,7 +11,7 @@ import {
 import style from './Styles/RootContainerStyles';
 import NormalComponent from '../Components/NormalComponent';
 
-const BlueComponent = compose(blueBoxEnhancer, redBoxEnhancer, blueBoxEnhancer, blueBoxEnhancer)(NormalComponent);
+const BlueComponent = compose(blueBoxEnhancer)(NormalComponent);
 const RedComponent = compose(redBoxEnhancer)(NormalComponent);
 
 class Screen extends Component {

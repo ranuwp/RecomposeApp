@@ -18,6 +18,7 @@ class NormalComponent extends Component {
 NormalComponent.defaultProps = {
   style: {
     flex: 1,
+//    backgroundColor: 'yellow',
   },
   data: [],
 };
