@@ -1,31 +1,51 @@
 import React, { Component } from 'react';
 import {
   Container,
-  View,
+  Text,
+  Button,
+  Content
 } from 'native-base';
-import { compose } from 'recompose';
 import {
-  blueBoxEnhancer,
-  redBoxEnhancer,
-} from '../Enhancers';
-import style from './Styles/RootContainerStyles';
-import NormalComponent from '../Components/NormalComponent';
-
-const BlueComponent = compose(blueBoxEnhancer, redBoxEnhancer, blueBoxEnhancer, blueBoxEnhancer)(NormalComponent);
-const RedComponent = compose(redBoxEnhancer)(NormalComponent);
+  compose,
+  withState
+} from 'recompose';
 
 class Screen extends Component {
+  incrementCounter = () => {
+    const { setCounter } = this.props;
+    setCounter((previousCounter) => {
+      return previousCounter + 1;
+    });
+  };
+
+  decrementCounter = () => {
+    const { setCounter } = this.props;
+    setCounter((previousCounter) => {
+      return previousCounter - 1;
+    });
+  };
+
   render() {
+    const { counter } = this.props;
     return (
       <Container>
-        <NormalComponent />
-        <View style={style.horizontalLine}/>
-        <BlueComponent />
-        <View style={style.horizontalLine}/>
-        <RedComponent />
+        <Text>Counter: {counter}</Text>
+        <Content>
+          <Button onPress={this.incrementCounter}>
+            <Text>Increment</Text>
+          </Button>
+          <Button onPress={this.decrementCounter}>
+            <Text>Decrement</Text>
+          </Button>
+        </Content>
       </Container>
     );
   }
 }
 
-export default Screen;
+export default compose(
+  withState('counter', 'setCounter', 0),
+//  withState('data', 'setData', {}),
+//  withState('error', 'setError', 'Error'),
+//  withState('food', 'setFood', [])
+)(Screen);
