@@ -11,7 +11,7 @@ import {
 import style from './Styles/RootContainerStyles';
 import NormalComponent from '../Components/NormalComponent';
 
-const BlueComponent = compose(blueBoxEnhancer)(NormalComponent);
+const BlueComponent = compose(redBoxEnhancer, blueBoxEnhancer)(NormalComponent);
 const RedComponent = compose(redBoxEnhancer)(NormalComponent);
 
 class Screen extends Component {
@@ -20,9 +20,9 @@ class Screen extends Component {
       <Container>
         <NormalComponent />
         <View style={style.horizontalLine}/>
-        <BlueComponent />
-        <View style={style.horizontalLine}/>
         <RedComponent />
+        <View style={style.horizontalLine}/>
+        <BlueComponent />
       </Container>
     );
   }

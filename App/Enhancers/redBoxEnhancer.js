@@ -2,24 +2,17 @@ import React, { Component } from 'react';
 import { Container, Text } from 'native-base';
 
 const redBoxEnhancer = (WrappedComponent) => {
-    class EnhancedComponent extends Component {
+    class RedBoxEnhancer extends Component {
       render() {
         return (
           <Container>
-            <Text>Enhanced By redBoxEnhancer</Text>
-            <WrappedComponent {...this.props} />
+            <Text>Enhanced By RedBoxEnhancer</Text>
+            <WrappedComponent {...this.props} style={{backgroundColor: 'red'}}/>
           </Container>
         );
       }
     }
-
-    EnhancedComponent.defaultProps = {
-      ...WrappedComponent.defaultProps,
-      style: {
-        backgroundColor: 'red',
-      },
-    };
-    return EnhancedComponent;
+    return RedBoxEnhancer;
   }
 ;
 

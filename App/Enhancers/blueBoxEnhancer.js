@@ -2,24 +2,17 @@ import React, { Component } from 'react';
 import { Container, Text } from 'native-base';
 
 const blueBoxEnhancer = (WrappedComponent) => {
-  class EnhancedComponent extends Component {
+  class BlueBoxEnhancer extends Component {
     render() {
       return (
         <Container>
-          <Text>Enhanced By blueBoxEnhancer</Text>
-          <WrappedComponent {...this.props} />
+          <Text>Enhanced By BlueBoxEnhancer</Text>
+          <WrappedComponent {...this.props} style={{backgroundColor: 'blue'}} />
         </Container>
       );
     }
   }
-
-  EnhancedComponent.defaultProps = {
-    ...WrappedComponent.defaultProps,
-    style: {
-      backgroundColor: 'blue',
-    },
-  };
-  return EnhancedComponent;
+  return BlueBoxEnhancer;
 };
 
 export default blueBoxEnhancer;
