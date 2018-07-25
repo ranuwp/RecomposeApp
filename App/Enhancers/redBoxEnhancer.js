@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import { Container, Text } from 'native-base';
+import { View, Text } from 'react-native';
 
 const redBoxEnhancer = (WrappedComponent) => {
-    class RedBoxEnhancer extends Component {
-      render() {
-        return (
-          <Container>
-            <Text>Enhanced By RedBoxEnhancer</Text>
-            <WrappedComponent {...this.props} style={{backgroundColor: 'red'}}/>
-          </Container>
-        );
-      }
+  class RedBoxEnhancer extends Component {
+    render() {
+      return (
+        <View style={{ flex: 1 }}>
+          <Text>Enhanced By RedBoxEnhancer</Text>
+          <WrappedComponent {...this.props} style={{ flex: 1, backgroundColor: 'red' }}/>
+        </View>
+      );
     }
-    return RedBoxEnhancer;
   }
-;
+
+  return RedBoxEnhancer;
+};
 
 export default redBoxEnhancer;

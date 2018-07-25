@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {
-  Container,
+  View,
   Text,
-} from 'native-base';
+} from 'react-native';
 
 class NormalComponent extends Component {
   render() {
     const { style } = this.props;
     return (
-      <Container style={style}>
+      <View style={style}>
         <Text>Normal Component</Text>
-      </Container>
+      </View>
     );
   }
 }

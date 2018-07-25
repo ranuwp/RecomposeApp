@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { Container, Text } from 'native-base';
+import { View, Text } from 'react-native';
 
 const blueBoxEnhancer = (WrappedComponent) => {
   class BlueBoxEnhancer extends Component {
     render() {
       return (
-        <Container>
+        <View style={{ flex: 1 }}>
           <Text>Enhanced By BlueBoxEnhancer</Text>
-          <WrappedComponent {...this.props} style={{backgroundColor: 'blue'}} />
-        </Container>
+          <WrappedComponent {...this.props} style={{ flex: 1, backgroundColor: 'blue' }}/>
+        </View>
       );
     }
   }
+
   return BlueBoxEnhancer;
 };
 

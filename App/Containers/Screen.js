@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import {
-  Container,
   View,
-} from 'native-base';
+} from 'react-native';
 import { compose } from 'recompose';
 import {
   blueBoxEnhancer,
@@ -17,13 +16,13 @@ const RedComponent = compose(redBoxEnhancer)(NormalComponent);
 class Screen extends Component {
   render() {
     return (
-      <Container>
+      <View style={style.fillAllView}>
         <NormalComponent />
         <View style={style.horizontalLine}/>
         <RedComponent />
         <View style={style.horizontalLine}/>
         <BlueComponent />
-      </Container>
+      </View>
     );
   }
 }

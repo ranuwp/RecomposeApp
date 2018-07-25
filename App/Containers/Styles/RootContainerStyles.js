@@ -25,4 +25,7 @@ export default StyleSheet.create({
     height: 5,
     backgroundColor: '#001edd'
   },
+  fillAllView: {
+    flex: 1,
+  }
 });
