@@ -28,17 +28,27 @@ class Screen extends Component {
     const { counter } = this.props;
     return (
       <View>
-        <Text style={{ textAlign:'center'}}>Counter: {counter}</Text>
-        <Button onPress={this.incrementCounter} title={'Increment'}/>
-        <Button onPress={this.decrementCounter} title={'Decrement'}/>
+        <Text
+          accessibilityLabel={'CounterText'}
+          style={{ textAlign: 'center' }}>
+          Counter: {counter}
+        </Text>
+        <Button
+          accessibilityLabel={'IncrementButton'}
+          onPress={this.incrementCounter}
+          title={'Increment'}/>
+        <Button
+          accessibilityLabel={'DecrementButton'}
+          onPress={this.decrementCounter}
+          title={'Decrement'}/>
       </View>
     );
   }
 }
 
 export default compose(
-  withState('counter', 'setCounter', 0)
-//  withState('data', 'setData', {}),
-//  withState('error', 'setError', 'Error'),
-//  withState('food', 'setFood', [])
+  withState('counter', 'setCounter', 0),
+  withState('data', 'setData', {}),
+  withState('error', 'setError', 'Error'),
+  withState('food', 'setFood', [])
 )(Screen);
