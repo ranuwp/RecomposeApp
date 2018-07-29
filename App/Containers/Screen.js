@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Container,
+  View,
   Text,
-  Button,
-  Content
-} from 'native-base';
+  Button
+} from 'react-native';
 import {
   compose,
   withState
@@ -28,23 +27,17 @@ class Screen extends Component {
   render() {
     const { counter } = this.props;
     return (
-      <Container>
-        <Text>Counter: {counter}</Text>
-        <Content>
-          <Button onPress={this.incrementCounter}>
-            <Text>Increment</Text>
-          </Button>
-          <Button onPress={this.decrementCounter}>
-            <Text>Decrement</Text>
-          </Button>
-        </Content>
-      </Container>
+      <View>
+        <Text style={{ textAlign:'center'}}>Counter: {counter}</Text>
+        <Button onPress={this.incrementCounter} title={'Increment'}/>
+        <Button onPress={this.decrementCounter} title={'Decrement'}/>
+      </View>
     );
   }
 }
 
 export default compose(
-  withState('counter', 'setCounter', 0),
+  withState('counter', 'setCounter', 0)
 //  withState('data', 'setData', {}),
 //  withState('error', 'setError', 'Error'),
 //  withState('food', 'setFood', [])
